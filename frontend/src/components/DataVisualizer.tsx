@@ -1,7 +1,9 @@
+import './DataVisualizer.css'
 
 export function DataVisualizer() {
   return(
-  <div>
-  </div>
+  <>
+    Visualizer
+  </>
   )
 }

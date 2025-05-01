@@ -26,23 +26,30 @@ function App() {
 
   return (
   <div className="App" style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
+    <div className="grid-container">
 
-    <div>
-      
-      <SqlInput setSql={setSql} sql={sql} handleRun={handleRun}></SqlInput>
+      <div className="sql-input">
+        
+        <SqlInput setSql={setSql} sql={sql} handleRun={handleRun}></SqlInput>
 
-      {error && (
-        <pre style={{ color: 'red', marginTop: '1rem' }}>{error}</pre>
-      )}
-      {result && (
-        <div style={{ marginTop: '1rem' }}>{
+      </div>
+
+      <div className="table-container">
+
+        {error && (
+            <pre style={{ color: 'red', marginTop: '1rem' }}>{error}</pre>   
+        )}
+        {result && (
           <SqlTable data={result}></SqlTable>
-        }</div>
-      )}
+        )}
+
+      </div>
+
+      <div className="visualizer">
+        <DataVisualizer></DataVisualizer>
+      </div>
+
     </div>
-
-    <DataVisualizer></DataVisualizer>
-
   </div>
   );
 }

@@ -18,6 +18,8 @@ th {
 }
 
 .table-container {
+  grid-area: Table-area;
   border: 1px;
   border-color: black;
+  outline: 1px solid #ccc;
 }

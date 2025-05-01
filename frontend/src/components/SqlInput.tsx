@@ -14,7 +14,9 @@ export function SqlInput(props: any) {
     />
     <br />
 
-    <button onClick={handleRun}>執行 SQL</button>
+    <div className="btn-input">
+      <button onClick={handleRun}>執行 SQL</button>
+    </div>
   </>
   )
 }

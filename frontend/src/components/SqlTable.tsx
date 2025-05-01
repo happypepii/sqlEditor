@@ -12,29 +12,29 @@ export function SqlTable(props: TableProps) {
   console.log("Table data:", data);
 
   return (
-    <div className="table-container">
-      <table>
-        <thead>
+  <>
+    <table>
+    <thead>
 
-          <tr>
-            {columns.map((col) => (
-              <th key={col}>{col}</th>
-            ))}
-          </tr>
+      <tr>
+        {columns.map((col) => (
+          <th key={col}>{col}</th>
+        ))}
+      </tr>
 
-        </thead>
-        <tbody>
+    </thead>
+    <tbody>
 
-          {data.map((item, rowIndex) => (
-            <tr key={rowIndex}>
-              {columns.map((col) => (
-                <td key={col}>{item[col]}</td>
-              ))}
-            </tr>
+      {data.map((item, rowIndex) => (
+        <tr key={rowIndex}>
+          {columns.map((col) => (
+            <td key={col}>{item[col]}</td>
           ))}
+        </tr>
+      ))}
 
-        </tbody>
-      </table>
-    </div>
+    </tbody>
+  </table>
+  </>
   );
 }

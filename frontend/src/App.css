@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+.grid-container {
+  display: grid;
+
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  grid-template-areas: 
+    'Input-area Visualizer-area'
+    'Table-area Visualizer-area';
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    grid-template-areas: 
+    'Input-area'
+    'Table-area'
+    'Visualizer-area';
+  }
+}
+
+.sql-input {
+  grid-area: Input-area;
+  outline: 1px solid #ccc;
+}
+
+.btn-input {
+  margin: 10px 0;
+}
