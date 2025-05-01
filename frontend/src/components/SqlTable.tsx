@@ -9,32 +9,30 @@ export function SqlTable(props: TableProps) {
 
   const columns = data.length > 0 ? Object.keys(data[0]) : [];
 
-  console.log("Table data:", data);
-
   return (
   <>
     <table>
-    <thead>
+      <thead>
 
-      <tr>
-        {columns.map((col) => (
-          <th key={col}>{col}</th>
-        ))}
-      </tr>
-
-    </thead>
-    <tbody>
-
-      {data.map((item, rowIndex) => (
-        <tr key={rowIndex}>
+        <tr>
           {columns.map((col) => (
-            <td key={col}>{item[col]}</td>
+            <th key={col}>{col}</th>
           ))}
         </tr>
-      ))}
 
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+
+        {data.map((item, rowIndex) => (
+          <tr key={rowIndex}>
+            {columns.map((col) => (
+              <td key={col}>{item[col]}</td>
+            ))}
+          </tr>
+        ))}
+
+      </tbody>
+    </table>
   </>
   );
 }

@@ -40,8 +40,10 @@
 .grid-container {
   display: grid;
 
+  height: 100vh;
+
   grid-template-columns: 1.5fr 1fr;
-  grid-template-rows: 1fr 1fr;
+   grid-template-rows: 0.5fr minmax(0, 1fr);
 
   grid-template-areas: 
     'Input-area Visualizer-area'
@@ -58,6 +60,13 @@
     'Table-area'
     'Visualizer-area';
   }
+}
+
+.table-container {
+  overflow: auto; /* Enable scrolling if content overflows */
+  min-height: 0;  /* Critical for scrollable grid children */
+  min-width: 0;   /* Prevent overflow on wide content */
+  padding: 2rem;
 }
 
 .sql-input {

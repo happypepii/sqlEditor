@@ -1,5 +1,8 @@
+import { useState } from "react";
+
 export function SqlInput(props: any) {
-  const { setSql, sql, handleRun } = props;
+  const [sql, setSql] = useState('SELECT * FROM Customers;');
+  const { handleRun } = props;
 
   return(
   <>
@@ -15,7 +18,7 @@ export function SqlInput(props: any) {
     <br />
 
     <div className="btn-input">
-      <button onClick={handleRun}>執行 SQL</button>
+      <button onClick={() => handleRun(sql)}>執行 SQL</button>
     </div>
   </>
   )
