@@ -1,0 +1,4 @@
+.visualizer {
+  grid-area: Visualizer-area;
+  outline: 1px solid #ccc;
+}
