@@ -7,12 +7,12 @@ import { SqlTable } from './components/SqlTable';
 import { DataVisualizer } from './components/DataVisualizer';
 
 function App() {
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   const handleRun = async (sql:string) => {
     setError(null);
-    setResult(null);
+    setResult([]);
 
     try {
       const res = await axios.post('http://localhost:3001/query', { sql });

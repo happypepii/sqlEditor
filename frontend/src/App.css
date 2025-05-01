@@ -63,10 +63,21 @@
 }
 
 .table-container {
-  overflow: auto; /* Enable scrolling if content overflows */
-  min-height: 0;  /* Critical for scrollable grid children */
-  min-width: 0;   /* Prevent overflow on wide content */
+  overflow: auto;
+  min-height: 0;
+  min-width: 0;
   padding: 2rem;
+}
+
+.visualizer {
+  overflow: auto;
+  min-height: 0;
+  min-width: 0;
+  padding: 2rem;
+}
+
+.table-title {
+  text-align: left;
 }
 
 .sql-input {

@@ -1,17 +1,53 @@
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import { SqlTable } from './SqlTable';
 
 import './DataVisualizer.css'
 
-export function DataVisualizer(props: any) {
-  const { handleRun } = props;
+export function DataVisualizer() {
+  const [customersData, setCustomersData] = useState<any[]>([]);
+  const [categoriesData, setCategoriesData] = useState<any[]>([]);
+  const [ordersData, setOrdersData] = useState<any[]>([]);
 
-  const queryCustomer = 'SELECT * FROM Customers LIMIT 5';
-  const queryCategories = 'SELECT * FROM Categories LIMIT 5';
-  const queryOrder = 'SELECT * FROM Orders LIMIT 5';
+  useEffect(() => {
+    const fetchAllTables = async () => {
+      try {
+
+        const [customersRes, categoriesRes, ordersRes] = await Promise.all([
+          axios.post('http://localhost:3001/query', { sql: 'SELECT * FROM Customers LIMIT 3' }),
+          axios.post('http://localhost:3001/query', { sql: 'SELECT * FROM Categories LIMIT 3' }),
+          axios.post('http://localhost:3001/query', { sql: 'SELECT * FROM Orders LIMIT 3' }),
+        ]);
+
+        setCustomersData(customersRes.data.result);
+        setCategoriesData(categoriesRes.data.result);
+        setOrdersData(ordersRes.data.result);
+
+      } catch (err) {
+        console.error('Error fetching preview tables:', err);
+      }
+    };
+
+  fetchAllTables();
+  }, []);
 
   return(
   <>
-    Visualizer
+    <div>
+      <h3 className="table-title">Customer</h3>
+      <SqlTable data={customersData}></SqlTable>
+    </div>
+
+    <div>
+      <h3 className="table-title">Category</h3>
+      <SqlTable data={categoriesData}></SqlTable>
+    </div>
+
+    <div>
+      <h3 className="table-title">Order</h3>
+      <SqlTable data={ordersData}></SqlTable>
+    </div>
   </>
   )
 }
