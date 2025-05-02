@@ -7,13 +7,12 @@ import { SqlTable } from './components/SqlTable';
 import { DataVisualizer } from './components/DataVisualizer';
 
 function App() {
-  const [sql, setSql] = useState('SELECT * FROM users;');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
 
-  const handleRun = async () => {
+  const handleRun = async (sql:string) => {
     setError(null);
-    setResult(null);
+    setResult([]);
 
     try {
       const res = await axios.post('http://localhost:3001/query', { sql });
@@ -28,10 +27,8 @@ function App() {
   <div className="App" style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
     <div className="grid-container">
 
-      <div className="sql-input">
-        
-        <SqlInput setSql={setSql} sql={sql} handleRun={handleRun}></SqlInput>
-
+      <div className="sql-input">   
+        <SqlInput handleRun={handleRun}></SqlInput>
       </div>
 
       <div className="table-container">
