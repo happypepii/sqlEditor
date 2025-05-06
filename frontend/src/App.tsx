@@ -24,7 +24,7 @@ function App() {
   };
 
   return (
-  <div className="App" style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
+  <div className="App">
     <div className="grid-container">
 
       <div className="sql-input">   

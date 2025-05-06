@@ -1,0 +1,21 @@
+.sql-input {
+  grid-area: input-area;
+
+  outline: 1px solid #ccc;
+}
+
+.btn {
+  text-align: center;
+}
+
+.input-btn {
+  margin: 1rem 0;
+}
+
+.input-title {
+  text-align: center;
+}
+
+.mirror-input {
+  padding: 0 2rem;
+}

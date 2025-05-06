@@ -1,4 +1,10 @@
 .visualizer {
-  grid-area: Visualizer-area;
+  grid-area: visualize-area;
+
+  overflow: auto;
+  min-height: 0;
+  min-width: 0;
+  padding: 2rem;
+
   outline: 1px solid #ccc;
 }

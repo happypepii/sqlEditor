@@ -1,90 +1,19 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+* {
+  box-sizing: border-box;
 }
 
 .grid-container {
   display: grid;
 
-  height: 100vh;
-
-  grid-template-columns: 1.5fr 1fr;
-   grid-template-rows: 0.5fr minmax(0, 1fr);
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 
   grid-template-areas: 
-    'Input-area Visualizer-area'
-    'Table-area Visualizer-area';
-}
+    'input-area visualize-area'
+    'table-area visualize-area';
 
-@media (max-width: 600px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  height: 100dvh;
 
-    grid-template-areas: 
-    'Input-area'
-    'Table-area'
-    'Visualizer-area';
-  }
-}
-
-.table-container {
-  overflow: auto;
-  min-height: 0;
-  min-width: 0;
-  padding: 2rem;
-}
-
-.visualizer {
-  overflow: auto;
-  min-height: 0;
-  min-width: 0;
-  padding: 2rem;
-}
-
-.table-title {
-  text-align: left;
-}
-
-.sql-input {
-  grid-area: Input-area;
-  outline: 1px solid #ccc;
-}
-
-.btn-input {
-  margin: 10px 0;
+  padding: 1.5rem;
 }

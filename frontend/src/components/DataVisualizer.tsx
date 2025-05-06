@@ -16,7 +16,7 @@ export function DataVisualizer() {
 
         const [customersRes, categoriesRes, ordersRes] = await Promise.all([
           axios.post('http://localhost:3001/query', { sql: 'SELECT * FROM Customers LIMIT 3' }),
-          axios.post('http://localhost:3001/query', { sql: 'SELECT * FROM Categories LIMIT 3' }),
+          axios.post('http://localhost:3001/categories', { sql: 'SELECT * FROM Categories LIMIT 3' }),
           axios.post('http://localhost:3001/query', { sql: 'SELECT * FROM Orders LIMIT 3' }),
         ]);
 
@@ -39,10 +39,10 @@ export function DataVisualizer() {
       <SqlTable data={customersData}></SqlTable>
     </div>
 
-    <div>
+    {/* <div>
       <h3 className="table-title">Category</h3>
       <SqlTable data={categoriesData}></SqlTable>
-    </div>
+    </div> */}
 
     <div>
       <h3 className="table-title">Order</h3>

@@ -1,7 +1,7 @@
 import './SqlTable.css';
 
 interface TableProps {
-  data?: Array<{ [key: string]: any[] }> | null;
+  data?: Array<{ [key: string]: any }> | null;
 }
 
 export function SqlTable(props: TableProps) {
@@ -30,9 +30,11 @@ export function SqlTable(props: TableProps) {
           <tr key={rowIndex}>
             {columns.map((col) => (
               <td key={col}>
-                {typeof item[col] === 'object' && item[col] !== null
-                  ? JSON.stringify(item[col])
-                  : item[col]}
+                {typeof item[col] === 'string' && item[col].startsWith('data:image')
+                ? <img src={item[col]} alt="image" style={{ maxWidth: '100px', maxHeight: '100px' }} />
+                : typeof item[col] === 'object' && item[col] !== null
+                ? JSON.stringify(item[col])
+                : item[col]}
               </td>
             ))}
           </tr>
