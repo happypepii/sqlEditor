@@ -16,7 +16,7 @@ async function setupDatabase() {
 
   if(!dbExists){
     logger.info('db init.....')
-    const sqlFiles = ['Categories.sql', 'Customers.sql', 'Orders.sql'];
+    const sqlFiles = ['Categories.sql', 'Customers.sql', 'Orders.sql', 'OrderDetails.sql', 'Products.sql'];
 
     for (const file of sqlFiles) {
         const filePath = path.join(__dirname, `../sqlfile/${file}`);
