@@ -36,3 +36,55 @@
     transform: rotate(360deg);
   }
 }
+
+.grid-container {
+  display: grid;
+
+  height: 100vh;
+
+  grid-template-columns: 1.5fr 1fr;
+   grid-template-rows: 0.5fr minmax(0, 1fr);
+
+  grid-template-areas: 
+    'Input-area Visualizer-area'
+    'Table-area Visualizer-area';
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    grid-template-areas: 
+    'Input-area'
+    'Table-area'
+    'Visualizer-area';
+  }
+}
+
+.table-container {
+  overflow: auto;
+  min-height: 0;
+  min-width: 0;
+  padding: 2rem;
+}
+
+.visualizer {
+  overflow: auto;
+  min-height: 0;
+  min-width: 0;
+  padding: 2rem;
+}
+
+.table-title {
+  text-align: left;
+}
+
+.sql-input {
+  grid-area: Input-area;
+  outline: 1px solid #ccc;
+}
+
+.btn-input {
+  margin: 10px 0;
+}
