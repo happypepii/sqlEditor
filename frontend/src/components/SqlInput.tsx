@@ -8,6 +8,7 @@ import './SqlInput.css'
 export function SqlInput(props: any) {
   const [sqlCode, setCodeSql] = useState<string>('SELECT * FROM Customers;');
   const { handleRun } = props;
+  
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.ctrlKey && e.key === 'Enter') {
       e.preventDefault(); // prevent newline

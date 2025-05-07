@@ -18,7 +18,7 @@ export function DataVisualizer() {
 
         const [customersRes, categoriesRes, ordersRes, orderDetailsRes, ProductsRes] = await Promise.all([
           axios.post('http://localhost:3001/query', { sql: 'SELECT * FROM Customers LIMIT 3' }),
-          axios.post('http://localhost:3001/categories', { sql: 'SELECT * FROM Categories LIMIT 3' }),
+          axios.post('http://localhost:3001/query', { sql: 'SELECT * FROM Categories LIMIT 3' }),
           axios.post('http://localhost:3001/query', { sql: 'SELECT * FROM Orders LIMIT 3' }),
           axios.post('http://localhost:3001/query', { sql: 'SELECT * FROM OrderDetails LIMIT 3' }),
           axios.post('http://localhost:3001/query', { sql: 'SELECT * FROM Products LIMIT 3' }),
@@ -46,7 +46,7 @@ export function DataVisualizer() {
     </div>
 
     <div>
-      <h3 className="table-title">Categories</h3> main
+      <h3 className="table-title">Categories</h3>
       <SqlTable data={categoriesData}></SqlTable>
     </div>
 
@@ -61,7 +61,7 @@ export function DataVisualizer() {
     </div>
 
     <div>
-      <h3 className="table-title">Prodcuts</h3>
+      <h3 className="table-title">Products</h3>
       <SqlTable data={ProductsData}></SqlTable>
     </div>
   </>

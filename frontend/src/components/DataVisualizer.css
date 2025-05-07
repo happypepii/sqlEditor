@@ -8,3 +8,9 @@
 
   outline: 1px solid #ccc;
 }
+
+@media (max-width: 1025px) {
+  .visualizer {
+    outline: none;
+  }
+}

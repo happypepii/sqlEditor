@@ -28,7 +28,9 @@ export function SqlTable(props: TableProps) {
 
         {data.map((item, rowIndex) => (
           <tr key={rowIndex}>
+
             {columns.map((col) => (
+
               <td key={col}>
                 {typeof item[col] === 'string' && item[col].startsWith('data:image')
                 ? <img src={item[col]} alt="image" style={{ maxWidth: '100px', maxHeight: '100px' }} />
@@ -36,7 +38,9 @@ export function SqlTable(props: TableProps) {
                 ? JSON.stringify(item[col])
                 : item[col]}
               </td>
+
             ))}
+            
           </tr>
         ))}
 
