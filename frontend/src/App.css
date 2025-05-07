@@ -1,90 +1,51 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  font-size: clamp(12px, 2vw, 16px);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  position: relative;
 }
 
 .grid-container {
   display: grid;
 
-  height: 100vh;
-
-  grid-template-columns: 1.5fr 1fr;
-   grid-template-rows: 0.5fr minmax(0, 1fr);
+  grid-template-columns: auto 1fr 1fr;
+  grid-template-rows: auto 1fr;
 
   grid-template-areas: 
-    'Input-area Visualizer-area'
-    'Table-area Visualizer-area';
+    'info-area input-area visualize-area'
+    'info-area table-area visualize-area';
+
+  height: 100dvh;
+
+  padding: 1.5rem 0;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1025px) {
   .grid-container {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: auto;
+    grid-template-rows: auto 1fr 1fr;
 
     grid-template-areas: 
-    'Input-area'
-    'Table-area'
-    'Visualizer-area';
+    'info-area'
+    'input-area'
+    'table-area';
+
+    padding: 1rem 0;
+  }
+
+  .expand-btn {
+    margin: 5px;
   }
 }
 
-.table-container {
-  overflow: auto;
-  min-height: 0;
-  min-width: 0;
-  padding: 2rem;
-}
+.expand-btn {
+  justify-self: end;
+  align-self: flex-end;
 
-.visualizer {
-  overflow: auto;
-  min-height: 0;
-  min-width: 0;
-  padding: 2rem;
-}
-
-.table-title {
-  text-align: left;
-}
-
-.sql-input {
-  grid-area: Input-area;
-  outline: 1px solid #ccc;
-}
-
-.btn-input {
-  margin: 10px 0;
+  margin: 10px;
 }
