@@ -22,7 +22,7 @@ export function SqlInput(props: any) {
 
   return(
   <>
-    <h1 className="input-title">SQL 練習工具</h1>
+    <h1 className="input-title">Online SQL Editor</h1>
 
     <CodeMirror
       className="mirror-input"
@@ -33,7 +33,7 @@ export function SqlInput(props: any) {
     />
 
     <div className="btn">
-      <button className="input-btn" onClick={() => handleRun(sqlCode)}>執行 SQL</button>
+      <button className="input-btn" onClick={() => handleRun(sqlCode)}>Run SQL</button>
     </div>
   </>
   )
