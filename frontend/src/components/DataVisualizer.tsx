@@ -61,7 +61,7 @@ export function DataVisualizer() {
     </div>
 
     <div>
-      <h3 className="table-title">Prodcuts</h3>
+      <h3 className="table-title">Products</h3>
       <SqlTable data={ProductsData}></SqlTable>
     </div>
   </>

@@ -1,8 +1,14 @@
 import { useState } from "react";
+import CodeMirror from "@uiw/react-codemirror";
+import { sql } from "@codemirror/lang-sql";
+import { EditorView, lineNumbers } from "@codemirror/view";
+
+import './SqlInput.css'
 
 export function SqlInput(props: any) {
-  const [sql, setSql] = useState('SELECT * FROM Customers;');
+  const [sqlCode, setCodeSql] = useState<string>('SELECT * FROM Customers;');
   const { handleRun } = props;
+  
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.ctrlKey && e.key === 'Enter') {
       e.preventDefault(); // prevent newline
@@ -10,22 +16,24 @@ export function SqlInput(props: any) {
     }
   };
 
+  const handleChange = (value: string) => {
+    setCodeSql(value);
+  };
+
   return(
   <>
-    <h1>SQL Editor</h1>
+    <h1 className="input-title">SQL 練習工具</h1>
 
-    <textarea
-      value={sql}
-      onChange={(e) => setSql(e.target.value)}
-      onKeyDown={handleKeyDown}
-      rows={6}
-      cols={60}
-      style={{ fontFamily: 'monospace', fontSize: '1rem' }}
+    <CodeMirror
+      className="mirror-input"
+      value={sqlCode}
+      height="200px"
+      extensions={[sql(), lineNumbers(), EditorView.lineWrapping]}
+      onChange={(_, viewUpdate) => handleChange(viewUpdate.state.doc.toString())}
     />
-    <br />
 
-    <div className="btn-input">
-      <button onClick={() => handleRun(sql)}>Run SQL</button>
+    <div className="btn">
+      <button className="input-btn" onClick={() => handleRun(sqlCode)}>執行 SQL</button>
     </div>
   </>
   )

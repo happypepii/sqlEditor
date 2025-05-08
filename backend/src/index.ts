@@ -25,6 +25,23 @@ setupDatabase().then((db) => {
     }
   });
 
+  app.get('/table-info/:tableName', async (req, res) => {
+    const tableName = req.params.tableName;
+  
+    try {
+      const rows = await db.all(`PRAGMA table_info(${tableName})`);
+      const columns = rows.map(row => ({
+        name: row.name,
+        type: row.type,
+      }));
+      res.json({ table: tableName, columns });
+      logger.info(`Fetched schema for table: ${tableName}`);
+    } catch (err: any) {
+      logger.error(`Error fetching table info: ${err.message}`);
+      res.status(400).json({ error: err.message });
+    }
+  });
+
   app.listen(port, () => {
     logger.info(`Server running at http://localhost:${port}`);
   });

@@ -1,6 +1,15 @@
+.table-container {
+  grid-area: table-area;
+
+  overflow: auto;
+  min-height: 0;
+  min-width: 0;
+  padding: 2rem;
+  outline: 1px solid #ccc;
+}
+
 table {
   width: auto;
-  margin: 0 auto;
   border-collapse: collapse;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 0.9rem;
@@ -15,11 +24,4 @@ th, td {
 th {
   background-color: #f0f0f0;
   font-weight: 600;
-}
-
-.table-container {
-  grid-area: Table-area;
-  border: 1px;
-  border-color: black;
-  outline: 1px solid #ccc;
 }
